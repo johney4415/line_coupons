@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_USER=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_PASSWORD=pgpassword
+    volumes:
+      - static-root:/var/www/static-root
+      - media-root:/var/www/media-root
+    ports:
+      - "8088:80"
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=pgpassword
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    ports:
+      - 5439:5432
+
+volumes:
+  media-root:
+  static-root:

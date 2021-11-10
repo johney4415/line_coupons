@@ -1,0 +1,10 @@
+# Rotate Django application logs
+/var/www/code/logs/*.log {
+    daily
+    missingok
+    rotate 64
+    maxage 30
+    dateext
+    create root root
+    su root root
+}
