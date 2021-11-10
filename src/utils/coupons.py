@@ -109,4 +109,6 @@ def get_coupons_result(my_code):
     for i in result:
         result_text += i
         result_text += '\n'
+    if result_text == '':
+      result_text = '你是國家邊緣人....'
     return result_text
