@@ -11,6 +11,8 @@ EXPOSE 80
 COPY nginx/uwsgi_params /etc/nginx/uwsgi_params
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/dhost.conf /etc/nginx/conf.d/default.conf
+COPY nginx/certificate.crt /etc/ssl/certificate.crt
+COPY nginx/private.key /etc/ssl/private.key
 
 # create source code folder
 RUN mkdir -p /var/www/code
