@@ -16,3 +16,5 @@ src/config/*
 src/db.sqlite3
 
 ssl.*
+nginx/*.key
+nginx/*.crt
